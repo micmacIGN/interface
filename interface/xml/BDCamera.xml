@@ -1,4 +1,5 @@
 
 <BDCamera>
     <Camera Nom="canon5D" Pixel="6.41025641025641"/>
+    <Camera Nom="nikon" Pixel="5.78"/>
 </BDCamera>

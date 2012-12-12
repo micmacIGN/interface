@@ -1,0 +1,138 @@
+<ParamMICMAC 
+      Subst="@$#1"
+      NameDecl="@$#1"
+
+      ZInc="@8"
+      SzW="@1"
+      ZRegul="@0.1"
+      DynExport="@1.0">
+	   <DicoLoc>
+		<ExitOnBrkp> true </ExitOnBrkp>
+	   </DicoLoc>
+
+<Section_Terrain>     
+
+    <IntervAltimetrie>
+        <ZIncCalc> ${ZInc}   </ZIncCalc>    <!-- metres -->
+    </IntervAltimetrie>
+
+    <IntervSpecialZInv >
+             <MulZMin >  0.3</MulZMin>
+             <MulZMax > 5 </MulZMax>
+       </IntervSpecialZInv>
+
+   <Planimetrie>  </Planimetrie>	<!-- pas de masque : le TA est calculé pour toute l'image -->
+
+</Section_Terrain>
+
+<Section_PriseDeVue >	<!-- Parametres lies a la prise de vue, independamment de son exploitation par le correlateur -->
+     <GeomImages> eGeomImageOri </GeomImages>
+	<IncludeFileLoc>   Cartes_A_Creer.xml </IncludeFileLoc>
+
+     <NomsGeometrieImage>
+         <FCND_Mode_GeomIm>
+               <FCND_GeomCalc> Key-Assoc-8B-Im2OrFinale  </FCND_GeomCalc>
+         </FCND_Mode_GeomIm>
+     </NomsGeometrieImage>
+</Section_PriseDeVue>
+
+<Section_MEC >	<!-- Parametres fixant le comportement de l'algo de mise en correspondance -->
+	<!--<ChantierFullImage1>  true </ChantierFullImage1>-->
+
+	<TypePyramImage>
+	       <Resol>   2            </Resol>
+	       <TypeEl>  eFloat32Bits </TypeEl>
+	</TypePyramImage>
+
+	<EtapeMEC>
+	    <DeZoom >  -1             </DeZoom>
+	    <DynamiqueCorrel> eCoeffCorrelStd </DynamiqueCorrel>
+	    <AggregCorr> eAggregSymetrique </AggregCorr>
+
+            <SzW >       ${SzW}               </SzW>
+            <ZRegul>     ${ZRegul}  </ZRegul>
+
+
+	    <AlgoRegul>  eAlgo2PrgDyn </AlgoRegul>
+            <CoxRoy8Cnx> true </CoxRoy8Cnx>
+            <ModeInterpolation> eInterpolBiLin </ModeInterpolation>
+
+	    <ZPas>   0.5     </ZPas>
+            <ZDilatAlti>  3  </ZDilatAlti>
+	    <ZDilatPlani> 4  </ZDilatPlani>
+
+	    <SsResolOptim> 1 </SsResolOptim>
+            <CoxRoyUChar> false </CoxRoyUChar>
+
+
+	    <ModulationProgDyn Portee="Globale">
+	         <EtapeProgDyn>
+	              <ModeAgreg> ePrgDAgrSomme </ModeAgreg>
+	              <NbDir>   10               </NbDir>
+	          </EtapeProgDyn>
+	          <Px1PenteMax>   3.0    </Px1PenteMax>
+	    </ModulationProgDyn>
+
+
+	    <GenImagesCorrel> true </GenImagesCorrel>
+	</EtapeMEC>
+
+	<EtapeMEC> 
+	      <DeZoom >  64    </DeZoom> 
+	      <ZPas>    1     </ZPas>
+	</EtapeMEC>
+	<EtapeMEC> <DeZoom >  64    </DeZoom> </EtapeMEC>
+	<EtapeMEC> <DeZoom >  32    </DeZoom> </EtapeMEC>
+	<EtapeMEC> <DeZoom >  16    </DeZoom> </EtapeMEC>
+	<EtapeMEC> <DeZoom >  8     </DeZoom> </EtapeMEC>
+
+
+</Section_MEC>
+<!--  *************************************************************
+       Parametres fixant les resultats
+     devant etre produits par l'algo
+-->
+<Section_Results >
+
+
+    <GeomMNT> eGeomMNTEuclid  </GeomMNT>
+    <DoMEC >  true </DoMEC> 
+    <SaturationTA>  0 </SaturationTA>
+    <ZoomMakeTA> 8 </ZoomMakeTA>
+
+    <OrthoTA > true  </OrthoTA>
+
+    <GammaVisu> 1.0 </GammaVisu>
+    <ZoomVisuLiaison> -1 </ZoomVisuLiaison>
+    <DoNothingBut>
+	<ButDoTA>  true </ButDoTA>
+        <ButDoOriMNT> true </ButDoOriMNT>
+        <ButDoMasqueChantier> true </ButDoMasqueChantier>
+    </DoNothingBut>
+    
+    
+</Section_Results>
+<!--  *************************************************************
+       Parametres lies a la gestions
+     du "chantier" sur la machine
+-->
+<Section_WorkSpace >
+	<IncludeFileLoc>   Nom_TA.xml </IncludeFileLoc>
+     <WorkDir >  ThisDir </WorkDir> 
+
+     <AvalaibleMemory> 1024 </AvalaibleMemory>
+     <SzDalleMin>  400 </SzDalleMin>
+     <SzDalleMax>  500  </SzDalleMax>
+     <SzRecouvrtDalles> 50 </SzRecouvrtDalles>
+     <ByProcess> ${MMNbProc} </ByProcess>
+     <FirstEtapeMEC> 0 </FirstEtapeMEC>
+
+
+
+</Section_WorkSpace>
+
+<Section_Vrac> 
+</Section_Vrac>
+
+</ParamMICMAC>
+

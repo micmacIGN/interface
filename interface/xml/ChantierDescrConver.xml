@@ -1,0 +1,164 @@
+
+<Global>
+  <ChantierDescripteur
+     Subst="@$#1"
+     NameDecl="@$#1"
+  >
+     
+
+
+  <IncludeFile> ${ThisDir}Liste_images.xml  </IncludeFile>
+  <IncludeFile> ${ThisDir}Liste_couples.xml  </IncludeFile>
+  <IncludeFile> ${ThisDir}Liste_calibrations_internes.xml  </IncludeFile>
+
+   <KeyedSetsORels>
+       <Sets >
+            <ByAdjacence>
+                <KeySets>  Key-Set-All-Im   </KeySets>
+                <DeltaMax > 10000  </DeltaMax>
+                <DeltaMin > -10000 </DeltaMin>
+                <Filtre>
+                     <FiltreByRelSsEch>
+                        <KeySet >  Key-Set-SsRes-HomolPastisBin          </KeySet>
+                        <KeyAssocCple>  Key-Assoc-SsRes-CpleIm2HomolPastisBin   </KeyAssocCple>
+                        <SeuilBasNbPts> 1 </SeuilBasNbPts>
+                        <SeuilHautNbPts> 1 </SeuilHautNbPts>
+                        <NbMinCple> 100000 </NbMinCple>
+                     </FiltreByRelSsEch>
+                </Filtre>
+            </ByAdjacence>
+       </Sets>
+       <Key  > Key-Rel-All-Cples-Filtr-SsEch </Key>
+    </KeyedSetsORels>
+
+
+   <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite>  1 1 </Arrite>
+            <Direct>
+                <PatternTransform> ^(.*).tif </PatternTransform>
+                <CalcName>  JPG/$1_Scaled.tif </CalcName>
+             </Direct>
+        </Calcs>
+        <Key>   Key-Assoc-Gray2Coul </Key>
+    </KeyedNamesAssociations>
+
+
+<!--   <KeyedNamesAssociations>
+            <Calcs>
+                 <Arrite>  1 1 </Arrite>
+                 <Direct>
+                       <PatternTransform> ^${AutomateNumeroteurInit} </PatternTransform>
+                       <CalcName> ${PrefixCalibCoul}$1.xml </CalcName>
+                 </Direct>
+             </Calcs>
+             <Key>   Key-Assoc-Calib-Coul </Key>
+   </KeyedNamesAssociations>-->
+
+<!--  <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite>  2 1 </Arrite>
+            <Direct>
+                <PatternTransform>   img_([0-9]{4}).*\.tif@(.*)  </PatternTransform>
+                <CalcName>  Ori-F/Attr$2_MM_$1.xml  </CalcName>
+             </Direct>
+        </Calcs>
+        <Key>   Key-Assoc-Attr-MM </Key>
+    </KeyedNamesAssociations>-->
+
+<!-- <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite>  1 1 </Arrite>
+            <Direct>
+                <PatternTransform> (.*)_MpDcraw8B_GB\.tif  </PatternTransform>
+                <CalcName>  Orient/OrInit-$1_MpDcraw8B_GB.xml  </CalcName>
+             </Direct>
+            <Inverse>
+                <PatternTransform> Orient/OrInit-(.*)_MpDcraw8B_GB\.xml </PatternTransform>
+                <CalcName>  $1_MpDcraw8B_GB.tif  </CalcName>
+             </Inverse>
+        </Calcs>
+        <Key>   Key-Assoc-8B-Im2OrInit </Key>
+    </KeyedNamesAssociations>-->
+
+ <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite>  1 1 </Arrite>
+            <Direct>
+                <PatternTransform> (.*)\.tif  </PatternTransform>
+                <CalcName>  Ori-F/OrFinale-$1.xml  </CalcName>
+             </Direct>
+            <Inverse>
+                <PatternTransform> Ori-F/OrFinale-(.*)\.xml </PatternTransform>
+                <CalcName>  $1.tif  </CalcName>
+             </Inverse>
+        </Calcs>
+        <Key>   Key-Assoc-8B-Im2OrFinale </Key>
+    </KeyedNamesAssociations>
+
+ <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite>  1 1 </Arrite>
+            <Direct>
+                <PatternTransform> (.*)_couleur\.tif  </PatternTransform>
+                <CalcName>  Ori-F/OrFinale-$1.xml  </CalcName>
+             </Direct>
+            <Inverse>
+                <PatternTransform> Ori-F/OrFinale-(.*)\.xml </PatternTransform>
+                <CalcName>  $1_couleur.tif  </CalcName>
+             </Inverse>
+        </Calcs>
+        <Key>   Key-Assoc-8B-Im2OrFinale_couleur </Key>
+    </KeyedNamesAssociations>
+
+   <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite>  1 1 </Arrite>
+            <Direct>
+                <PatternTransform> (.*)\.tif </PatternTransform>
+                <CalcName>  Ori-Initiale/OrInitiale-$1.xml  </CalcName>
+             </Direct>
+            <Inverse>
+                <PatternTransform> Ori-Initiale/OrInitiale-(.*).xml  </PatternTransform>
+                <CalcName>  $1.tif  </CalcName>
+             </Inverse>
+        </Calcs>
+        <Key>   Key-Assoc-Im2OrInitiale </Key>
+	<SubDirAutoMake> Ori-Initiale </SubDirAutoMake>
+    </KeyedNamesAssociations>
+    <KeyedSetsOfNames >
+          <Sets> 
+                 <PatternAccepteur> OrInitiale-(.*).xml  </PatternAccepteur>
+		 <SubDir>   Ori-Initiale/ </SubDir>
+	  </Sets>
+          <Key> Key-Set-All-OrInitiale </Key>
+    </KeyedSetsOfNames>
+
+ <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite>  1 1 </Arrite>
+            <Direct>
+                <PatternTransform> (.*)\.tif  </PatternTransform>
+                <CalcName>  $1_couleur.tif  </CalcName>
+             </Direct>
+        </Calcs>
+        <Key>   Key-Assoc-Id_couleur </Key>
+    </KeyedNamesAssociations>
+
+ 
+	<KeyedNamesAssociations>
+	    <Calcs>
+		<Arrite>1 1</Arrite>
+		<Direct>
+		    <PatternTransform>F(.*)_(.*).tif</PatternTransform>
+		    <CalcName>TheKeyCalib_$1_$2</CalcName>
+		</Direct>
+	    </Calcs>
+	    <Key>Key-Assoc-Cal-Var</Key>
+	</KeyedNamesAssociations>
+
+
+
+
+  </ChantierDescripteur>
+</Global>

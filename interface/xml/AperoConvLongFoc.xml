@@ -1,0 +1,296 @@
+<Global
+    Subst="@$#1"
+>
+   <ParamApero>
+	   <DicoLoc>
+		<ExitOnBrkp> true </ExitOnBrkp>
+	   </DicoLoc>
+
+       <SectionBDD_Observation>
+             <BDD_PtsLiaisons>
+                 <Id>    Id_Pastis_Hom  </Id>
+                 <KeySet> Key-Set-HomolPastisBin  </KeySet>
+                 <UseAsPtMultiple> true </UseAsPtMultiple>
+                 <KeyAssoc>  Key-Assoc-CpleIm2HomolPastisBin   </KeyAssoc>
+             </BDD_PtsLiaisons>
+
+             <BDD_Orient >
+                  <Id> Key-Ori-Init </Id>
+                  <KeySet>  Key-Set-All-OrInit </KeySet>
+                  <KeyAssoc>  Key-Assoc-Im2OrInit </KeyAssoc>
+             </BDD_Orient>
+		<IncludeFileLoc>   DefObservationsGPS.xml </IncludeFileLoc>
+       </SectionBDD_Observation>
+
+       <SectionInconnues>
+		<IncludeFileLoc>   DefCalibrationAcVInit.xml </IncludeFileLoc>
+		<IncludeFileLoc>   Images_a_orienter_acVInit.xml </IncludeFileLoc>
+		<IncludeFileLoc>   DefInconnuesGPS.xml </IncludeFileLoc>
+        </SectionInconnues>
+
+
+        <SectionChantier>
+	     <DirectoryChantier> ThisDir
+             </DirectoryChantier>
+        </SectionChantier>
+
+        <SectionSolveur>
+	      <ModeResolution> eSysPlein </ModeResolution> 
+        </SectionSolveur>
+
+
+	<SectionCompensation>
+
+	    <EtapeCompensation>
+                    <IterationsCompensation>
+				<IncludeFileLoc>   OrientationGPS.xml </IncludeFileLoc>
+                       <Pose2Init>
+                             <ProfMin> [2,4,6] </ProfMin>
+                             <Show> true </Show>
+                       </Pose2Init>
+		       <SectionContraintes>
+				<ContraintesCamerasInc>
+				    <Val>eLiberteFocale_0</Val>
+				    <Val>eLib_PP_CD_00</Val>
+				    <Val>eLiberte_DR0</Val>
+				    <IncludeFileLoc>   CleCalibClassiq.xml </IncludeFileLoc>
+				</ContraintesCamerasInc>
+				<ContraintesCamerasInc>
+				    <Val>eLiberteFocale_0</Val>
+				    <Val>eLib_PP_CD_00</Val>
+				    <Val>eLiberte_DR0</Val>
+				    <Val>eLiberte_Dec0</Val>
+				    <Val>eLiberteParamDeg_0</Val>
+				    <IncludeFileLoc>   CleCalibFishEye.xml </IncludeFileLoc>
+				</ContraintesCamerasInc>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		   		<IncludeFileLoc>   PosesFigees.xml </IncludeFileLoc>
+		       </SectionContraintes>
+                    </IterationsCompensation>
+
+                    <IterationsCompensation> </IterationsCompensation>
+                    <IterationsCompensation> </IterationsCompensation>
+
+		    <SectionObservations>
+                           <ObsLiaisons>
+                              <NameRef> Id_Pastis_Hom </NameRef>
+                              <Pond>
+                                 <EcartMesureIndiv>  1.0 </EcartMesureIndiv>
+                                 <Show> eNSM_Paquet     </Show>
+                                 <NbMax>   100    </NbMax>
+                                  <EcartMax> 20 </EcartMax>
+                                  <SigmaPond> 5 </SigmaPond>
+                                  <ModePonderation> eL1Secured </ModePonderation>
+                              </Pond>
+                           </ObsLiaisons>
+		    </SectionObservations>
+	      </EtapeCompensation>
+
+	    <EtapeCompensation>
+                    <IterationsCompensation> </IterationsCompensation>
+                    <IterationsCompensation> </IterationsCompensation>
+                    <IterationsCompensation> </IterationsCompensation>
+
+		    <SectionObservations>
+                           <ObsLiaisons>
+                              <NameRef> Id_Pastis_Hom </NameRef>
+                              <Pond>
+                                 <EcartMesureIndiv>  1.0 </EcartMesureIndiv>
+                                 <Show> eNSM_Paquet     </Show>
+                                 <NbMax>   100    </NbMax>
+                                  <EcartMax> 20 </EcartMax>
+                                  <SigmaPond> 5 </SigmaPond>
+                                  <ModePonderation> eL1Secured </ModePonderation>
+                              </Pond>
+                           </ObsLiaisons>
+		    </SectionObservations>
+	      </EtapeCompensation>
+
+	      <EtapeCompensation>
+
+<!--calibration longue classique-->
+                   <IterationsCompensation>
+                       <SectionContraintes>
+                          <ContraintesCamerasInc>
+                              <Val> eLiberteFocale_1  </Val>
+		   		<IncludeFileLoc>   CleCalibLonguesClassiq.xml </IncludeFileLoc>
+                          </ContraintesCamerasInc>
+                       </SectionContraintes>
+                   </IterationsCompensation>
+
+                   <IterationsCompensation>
+                       <SectionContraintes>
+                          <ContraintesCamerasInc>
+                              <Val> eLiberte_DR1      </Val>
+		   		<IncludeFileLoc>   CleCalibLonguesClassiq.xml </IncludeFileLoc>
+                          </ContraintesCamerasInc>
+                       </SectionContraintes>
+                   </IterationsCompensation>
+                   <IterationsCompensation>
+                       <SectionContraintes>
+                          <ContraintesCamerasInc>
+                              <Val> eLiberte_DR2      </Val>
+		   		<IncludeFileLoc>   CleCalibLonguesClassiq.xml </IncludeFileLoc>
+                          </ContraintesCamerasInc>
+                       </SectionContraintes>
+                   </IterationsCompensation>
+                   <IterationsCompensation>
+                       <SectionContraintes>
+                          <ContraintesCamerasInc>
+                              <Val> eLiberte_DR3      </Val>
+		   		<IncludeFileLoc>   CleCalibLonguesClassiq.xml </IncludeFileLoc>
+                          </ContraintesCamerasInc>
+                       </SectionContraintes>
+                   </IterationsCompensation>
+
+                   <IterationsCompensation>
+                       <SectionContraintes>
+                          <ContraintesCamerasInc>
+                              <Val> eLib_PP_CD_Lies     </Val>
+		   		<IncludeFileLoc>   CleCalibLonguesClassiq.xml </IncludeFileLoc>
+                              <TolContrainte> 300.0 </TolContrainte>
+                          </ContraintesCamerasInc>
+                       </SectionContraintes>
+                   </IterationsCompensation>
+
+<!--calibration longue fish-eye-->
+                    <IterationsCompensation>
+		       <SectionContraintes>
+		          <ContraintesCamerasInc>
+		              <Val> eLib_PP_CD_11     </Val>
+		              <Val> eLiberte_DR3      </Val>
+                   	      <IncludeFileLoc>   CleCalibLonguesFishEye.xml </IncludeFileLoc>
+		          </ContraintesCamerasInc>
+		       </SectionContraintes>
+                    </IterationsCompensation>
+
+                    <IterationsCompensation> </IterationsCompensation>
+
+                    <IterationsCompensation>
+		       <SectionContraintes>
+		          <ContraintesCamerasInc>
+		              <Val> eLiberteFocale_1  </Val>
+                              <Val> eLiberte_DR5  </Val>
+                   	      <IncludeFileLoc>   CleCalibLonguesFishEye.xml </IncludeFileLoc>
+		          </ContraintesCamerasInc>
+		       </SectionContraintes>
+                    </IterationsCompensation>
+                    <IterationsCompensation>
+
+                       <SectionContraintes>
+                          <ContraintesCamerasInc>
+                              <Val> eLiberte_DR10  </Val>
+                   	      <IncludeFileLoc>   CleCalibLonguesFishEye.xml </IncludeFileLoc>
+                          </ContraintesCamerasInc>
+                       </SectionContraintes>
+                    </IterationsCompensation>
+
+                    <IterationsCompensation>
+                       <SectionContraintes>
+                             <ContraintesCamerasInc>
+                                 <Val> eLiberteParamDeg_5  </Val>
+                                 <Val>  eLiberte_Dec5  </Val>
+                   	      <IncludeFileLoc>   CleCalibLonguesFishEye.xml </IncludeFileLoc>
+                             </ContraintesCamerasInc>
+                       </SectionContraintes>
+                    </IterationsCompensation>
+
+
+<!--calibration courtes-->
+
+                   <IterationsCompensation>
+                       <SectionContraintes>
+		   	 	<IncludeFileLoc>   PosesLibres.xml </IncludeFileLoc>
+		          <ContraintesPoses>
+			     <NamePose>   0 </NamePose>
+			     <Val>      ePoseFigee   </Val>
+		          </ContraintesPoses>
+		          <ContraintesPoses>
+			     <NamePose>   1     </NamePose>
+			     <Val>      ePoseBaseNormee   </Val>
+			     <PoseRattachement>   0 </PoseRattachement>
+		          </ContraintesPoses>
+                       </SectionContraintes>
+                    </IterationsCompensation>
+                    <IterationsCompensation> </IterationsCompensation>
+
+
+                   <IterationsCompensation>
+                       <SectionContraintes>
+                          <ContraintesCamerasInc>
+                              <Val> eLiberteFocale_1  </Val>
+                              <Val> eLiberte_DR3      </Val>
+                              <Val> eLib_PP_CD_11     </Val>
+		   		<IncludeFileLoc>   CleCalibCourtes.xml </IncludeFileLoc>
+                          </ContraintesCamerasInc>
+                       </SectionContraintes>
+                    </IterationsCompensation>
+
+
+                    <IterationsCompensation> </IterationsCompensation>
+                    <IterationsCompensation> </IterationsCompensation>
+
+		    <SectionObservations>
+                           <ObsLiaisons>
+                              <NameRef> Id_Pastis_Hom </NameRef>
+                              <Pond>
+                                 <EcartMesureIndiv>  1.0 </EcartMesureIndiv>
+                                 <Show> eNSM_Paquet     </Show>
+                                 <NbMax>   100    </NbMax>
+                                  <EcartMax> 10 </EcartMax>
+                                  <SigmaPond> 4 </SigmaPond>
+                              </Pond>
+                           </ObsLiaisons>
+				<IncludeFileLoc>   PonderationsGPS.xml </IncludeFileLoc>
+		    </SectionObservations>
+	      </EtapeCompensation>
+
+
+	      <EtapeCompensation>
+
+                    <IterationsCompensation> </IterationsCompensation>
+
+                    <IterationsCompensation>
+				<IncludeFileLoc>   OrientationAbsolue.xml </IncludeFileLoc>
+		    </IterationsCompensation>
+                    <IterationsCompensation> </IterationsCompensation>
+
+		    <SectionObservations>
+                           <ObsLiaisons>
+                              <NameRef> Id_Pastis_Hom </NameRef>
+                              <Pond>
+                                 <EcartMesureIndiv>  1.0 </EcartMesureIndiv>
+                                 <Show> eNSM_Paquet     </Show>
+                                 <NbMax>   100    </NbMax>
+				 <ModePonderation>  eL1Secured </ModePonderation>
+				 <SigmaPond> 2.0 </SigmaPond>
+				 <EcartMax> 5.0 </EcartMax>
+                              </Pond>
+                           </ObsLiaisons>
+		    </SectionObservations>
+
+                    <SectionExport>
+
+                     <ExportPose>
+                            <PatternSel> (.*).tif </PatternSel>
+                            <KeyAssoc> Key-Assoc-Im2OrFinale </KeyAssoc>
+                            <AddCalib>  true </AddCalib>
+                            <NbVerif>  10 </NbVerif>
+                            <TolWhenVerif> 1e-3 </TolWhenVerif>
+                            <FileExtern> Key-Assoc-Im2AutoCalFinale </FileExtern>
+                            <FileExternIsKey> true </FileExternIsKey>
+                        </ExportPose>
+                        <ExportCalib>
+                             <KeyAssoc>  Key-Assoc-CleCal2AutoCalFinale </KeyAssoc>
+                             <KeyIsName> false </KeyIsName>
+                        </ExportCalib>
+				<IncludeFileLoc>   ExportPly.xml </IncludeFileLoc>
+
+                    </SectionExport>
+
+	      </EtapeCompensation>
+	</SectionCompensation>
+
+   </ParamApero>
+</Global>
+
