@@ -1,0 +1,51 @@
+Prerequis
+
+	L'interface de Micmac necessite pour fonctionner l'installation de Qt 4.8.
+	
+	Sous Ubuntu : sudo apt-get libqt4-opengl
+	
+	Si votre systeme ne dispose pas d'un systeme de paquets, les librairies sont disponibles pour Linux,
+Windows et Mac OS X a cette addresse :
+		http://qt-project.org/downloads
+	
+	Si vous utilisez la version precompilee pour Windows, choisissez les librairies pour Visual Studio 2010.
+	
+	Sous Linux et Mac OS, l'utilitaire tiff2rgba doit etre installe sur votre systeme, il est contenu dans le paquet
+libtiff-tools.
+	Par exemple, sous Ubuntu : sudo apt-get libtiff-tools
+						
+Compilation a partir des sources
+
+	Prerequis
+	
+		Sous Ubuntu : sudo apt-get libqt4-opengl-dev
+		Les archives telechargees depuis qt-project.org contiennent deja les fichiers de developpement.
+
+	Recuperer le code source
+
+		Le depot Mercurial contient les sources de l'interface, si vous avez telecharge Micmac par ce biais, vous
+pouvez passer directement a l'etape de compilation.
+
+		Pour compiler l'interface a partir des archives de sources, vous aurez besoin :
+			- des sources de base de micmac (micmac_source_revXXX.tar.gz)
+			- des sources de l'interface (micmac_interface_source_revYYY.tar.gz)
+		Decompressez-les au meme endroit :
+			- tar xf micmac_source_revXXX.tar.gz
+			- tar xf interface_micmac_source_revYYY.tar.gz
+		Les sources de l'interface rajoutent un repertoire "interface" à la racine du repertoire micmac necessaire a 
+l'execution du programme interfaceMicmac. Un autre repertoire "interface" est ajoute dans micmac/src, contenant les
+sources proprement dites.
+	
+	Compilation
+
+		La compilation se fait selon les meme instructions que pour micmac seul, il suffit d'ajouter l'option :
+			-DWITH_INTERFACE=1
+		lors de l'appel à cmake. l'utilisation classique devient donc :
+			cd micmac
+			mkdir build
+			cd build
+			cmake ../ -DWITH_INTERFACE=1
+            make install -j
+		Si tout s'est deroule correctement, deux executables supplementaires sont generes dans le repertoire bin :
+			- interfaceMicmac
+			- test_ISA0

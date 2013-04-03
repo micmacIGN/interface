@@ -1,0 +1,50 @@
+Prerequisites
+
+    Micmac's graphic interface requires Qt 4.8 with the OpenGL module to run properly.
+    
+    On Ubuntu type : sudo apt-get libqt4-opengl
+    
+    You can also get a copy of Qt runtime libraries and development files at :
+        http://qt-project.org/downloads
+    
+    If you use Windows precompiled binaries, get Qt libraries for Visual Studio 2010.
+    
+    On Linux and Mac OS will will also need tiff2rgba utility included into "libtiff-tools" package.
+    
+    On Ubuntu, type : sudo apt-get libtiff-tools
+
+Compile from sources
+
+    Prerequisites
+    
+        On Ubuntu type : sudo apt-get libqt4-opengl-dev
+        This will install Qt development files needed for the creation of Micmac's graphic interface.
+        Archives download from qt-project.org already contains those development files.
+
+    Get GUI source code
+
+        Micmac's Mercurial repository also contains the source code for the graphic interface, so if you cloned
+it, you can skip this step.
+
+        Otherwise, you will need two archive files :
+            - core Micmac source code file (micmac_source_revXXX.tar.gz)
+            - GUI source code file (micmac_interface_source_revYYY.tar.gz)
+        Extract files from the archives in the same directory :
+            - tar xf micmac_source_revXXX.tar.gz
+            - tar xf interface_micmac_source_revYYY.tar.gz
+        The second tarball will add two "interface" directories, one in micmac's root directory containing runtime needed
+files and one in micmac/src with the source code.
+    
+    Compilation
+
+        Compilation process is the same as for the core program compilation except you will need to pass the argument
+            -DWITH_INTERFACE=1
+        on the cmake step. A typical usage will be :
+            cd micmac
+            mkdir build
+            cd build
+            cmake ../ -DWITH_INTERFACE=1
+            make install -j
+        If everything went well, your micmac/bin directory will contain two more binaries :
+            - interfaceMicmac
+            - test_ISA0
