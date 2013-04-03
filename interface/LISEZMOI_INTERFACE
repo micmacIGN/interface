@@ -13,6 +13,28 @@ Windows et Mac OS X a cette addresse :
 	Sous Linux et Mac OS, l'utilitaire tiff2rgba doit etre installe sur votre systeme, il est contenu dans le paquet
 libtiff-tools.
 	Par exemple, sous Ubuntu : sudo apt-get libtiff-tools
+
+Archives de binaires
+
+	L'archive de binaires de l'interface doit etre decompressee au meme endroit que l'archive de binaires Micmac.
+	Par exemple, sous Linux :
+		tar xf micmac_bin_Linux_x86_64_rev770.tar.gz
+		tar xf micmac_interface_bin_Linux_x86_64_rev770.tar.gz
+	L'arborescence obtenue est :
+		micmac/
+			  /bin
+			  /binaire-aux
+			  /data/
+				   /Tabul
+			  /include/
+					  /XML_GEN
+					  /XML_MicMac/
+								 /DicoCalibGeom
+			  /interface/
+						/help
+						/images
+						/lib
+						/xml
 						
 Compilation a partir des sources
 

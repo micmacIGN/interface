@@ -13,6 +13,28 @@ Prerequisites
     
     On Ubuntu, type : sudo apt-get libtiff-tools
 
+Binaries archives
+
+	Graphic interface binaries archive must be extracted in the same directory as Micmac's main archive.
+	For intance, on Linux :
+		tar xf micmac_bin_Linux_x86_64_rev770.tar.gz
+		tar xf micmac_interface_bin_Linux_x86_64_rev770.tar.gz
+	The directory tree should look like :
+		micmac/
+			  /bin
+			  /binaire-aux
+			  /data/
+				   /Tabul
+			  /include/
+					  /XML_GEN
+					  /XML_MicMac/
+								 /DicoCalibGeom
+			  /interface/
+						/help
+						/images
+						/lib
+						/xml
+
 Compile from sources
 
     Prerequisites
